@@ -1,3 +1,6 @@
+<?php
+include_once 'config.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,7 +16,7 @@
     <div class="row">
         <div class="col-lg-4 mx-auto my-4 border shadow p-3 mb-5 bg-body rounded">
             <h3 class="w-100 text-center mt-2">Register Page</h3>
-            <form class="my-4" id="registerForm" action="doAction.php" method="post">
+            <form class="my-4" id="registerForm" action="./doAction.php" method="post">
                 <div class="mb-3">
                     <label for="fname" class="form-label">First Name</label>
                     <input type="text" name="fname" class="form-control" id="fname" placeholder="Enter First Name" required>
