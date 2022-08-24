@@ -1,0 +1,10 @@
+﻿SELECT * FROM `employees` WHERE salary < 1000;
+SELECT employees.person_name AS 'Person Name',branch_units.unit_name FROM `employees` INNER JOIN branch_units ON employees.unit_id = branch_units.id
+SELECT DISTINCT employees.unit_id,branch_units.unit_name,AVG(employees.salary) FROM employees INNER JOIN branch_units ON branch_units.id = employees.unit_id GROUP BY employees.unit_id;
+SELECT DISTINCT branch_units.unit_name,branches.city FROM branch_units INNER JOIN branches ON branch_units.branch_id = branches.id WHERE branches.city = 'esfahan';
+SELECT DISTINCT branches.branch_name,COUNT(branch_units.branch_id) FROM branches INNER JOIN branch_units ON branches.id = branch_units.branch_id GROUP BY branches.id;
+SELECT employees.person_name,employees.unit_id,branches.branch_name FROM employees INNER JOIN branch_units ON employees.unit_id = branch_units.id INNER JOIN branches ON branches.id = branch_units.branch_id GROUP BY employees.person_name;
+SELECT employees.unit_id,branch_units.unit_name,AVG(employees.salary),branches.city FROM employees INNER JOIN branch_units ON employees.unit_id = branch_units.id INNER JOIN branches ON branches.id = branch_units.branch_id GROUP BY branch_units.id HAVING branches.city = 'esfahan';
+SELECT COUNT(employees.person_name) AS 'Person Count', branches.branch_name AS 'Branch Name' FROM employees INNER JOIN branch_units ON employees.unit_id = branch_units.id INNER JOIN branches ON branch_units.branch_id = branches.id GROUP BY branches.branch_name
+SELECT COUNT(employees.person_name) AS 'Person Count', branch_units.unit_name AS 'Unit Name' FROM employees RIGHT JOIN branch_units ON employees.unit_id = branch_units.id GROUP BY branch_units.id;
+SELECT COUNT(employees.person_name) AS 'PersonCount', branches.branch_name AS 'Branch Name' FROM employees INNER JOIN branch_units ON employees.unit_id = branch_units.id INNER JOIN branches ON branch_units.branch_id = branches.id GROUP BY branches.branch_name HAVING PersonCount<10;
